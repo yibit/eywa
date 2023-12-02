@@ -13,10 +13,10 @@ import (
 var Text = &cli.Command{
 	Name:        "text",
 	Usage:       "Start to convert text",
-	Description: "Start to onvert text",
+	Description: "Start to convert text",
 	Action:      executeText,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "title", "`type` of file to diff in (upper|lower|title)"),
+		utils.StringFlag("type", "title", "`type` of action (upper|lower|title)"),
 	},
 }
 

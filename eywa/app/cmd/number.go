@@ -13,12 +13,12 @@ import (
 
 var Number = &cli.Command{
 	Name:        "number",
-	Usage:       "Start to number",
-	Description: "Start to number",
+	Usage:       "Start to convert number",
+	Description: "Start to convert number",
 	Action:      executeNumber,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "bit", "`type` of number bit"),
-		utils.StringFlag("num", "100", "data of `num`"),
+		utils.StringFlag("type", "bit", "`type` of action (bit)"),
+		utils.StringFlag("num", "100", "then `number`"),
 	},
 }
 
@@ -26,7 +26,10 @@ func executeNumber(ctx *cli.Context) error {
 	logger.Init(ctx)
 	log.Debugf("type:%s", ctx.String("type"))
 
-	n, _ := strconv.ParseUint(ctx.String("num"), 10, 64)
+	n, err := strconv.ParseUint(ctx.String("num"), 10, 64)
+	if err != nil {
+		return nil
+	}
 	switch strings.ToLower(ctx.String("type")) {
 	case "bit":
 		log.Infof("%d", number.BitCount(n))
