@@ -1,8 +1,8 @@
 package main
 
 import (
-	"os"
 	"eywa/app"
+	"os"
 )
 
 var Version string

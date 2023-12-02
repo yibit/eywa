@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"eywa/text"
 	"eywa/logger"
+	"eywa/text"
 	"eywa/utils"
 	"strings"
 
@@ -30,7 +30,7 @@ func executeText(ctx *cli.Context) error {
 	}
 
 	data := ctx.Args().Get(0)
-	switch(strings.ToLower(ctx.String("type"))) {
+	switch strings.ToLower(ctx.String("type")) {
 	case "upper":
 		log.Infof("%s", text.Upper(data))
 	case "lower":
