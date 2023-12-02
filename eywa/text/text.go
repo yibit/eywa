@@ -6,16 +6,13 @@ import (
 )
 
 func Title(s string) string {
-	c := cases.Title(language.English)
-	return c.String(s)
+	return cases.Title(language.English).String(s)
 }
 
 func Lower(s string) string {
-	c := cases.Lower(language.English)
-	return c.String(s)
+	return cases.Lower(language.English).String(s)
 }
 
 func Upper(s string) string {
-	c := cases.Upper(language.English)
-	return c.String(s)
+	return cases.Upper(language.English).String(s)
 }
