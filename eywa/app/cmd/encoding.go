@@ -17,7 +17,7 @@ var Encoding = &cli.Command{
 	Description: "Start to encoding",
 	Action:      executeEncoding,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "base64", "`type` of crypto (base64|uuid|random)"),
+		utils.StringFlag("type", "base64", "`type` of crypto (number|uuid|random|hex)"),
 		utils.StringFlag("mode", "decoding", "`type` of crypto (encoding|decoding)"),
 		utils.StringFlag("num", "8", "`num` of length"),
 	},
@@ -45,6 +45,8 @@ func executeEncoding(ctx *cli.Context) error {
 	case "random":
 		n, _ := strconv.ParseUint(ctx.String("num"), 10, 64)
 		log.Infof("%s", utils.RandomString(int(n)))
+	case "hex":
+		log.Infof("%s", encoding.HexEncode(data))
 	default:
 		log.Infof("%s", encoding.DecodeString(data))
 	}
