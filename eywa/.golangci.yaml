@@ -1,0 +1,97 @@
+linters-settings:
+  depguard:
+    list-type: blacklist
+  dupl:
+    threshold: 100
+  funlen:
+    lines: 100
+    statements: 300
+  goconst:
+    min-len: 2
+    min-occurrences: 2
+  gocyclo:
+    min-complexity: 30
+  golint:
+    min-confidence: 0
+  gomnd:
+    settings:
+      mnd:
+        # don't include the "operation" and "assign"
+        checks: argument,case,condition,return
+  govet:
+    check-shadowing: true
+  lll:
+    line-length: 140
+  maligned:
+    suggest-new: true
+  misspell:
+    locale: US
+  nolintlint:
+    allow-leading-space: true
+    allow-unused: false
+    require-explanation: false
+    require-specific: false
+  gosec:
+    excludes:
+      - G404
+
+linters:
+  disable-all: false
+  enable:
+    - bodyclose
+    - deadcode
+    - depguard
+    - dogsled
+    #- dupl
+    - errcheck
+    - exhaustive
+    - funlen
+    - gochecknoinits
+    #- goconst
+    - gocritic
+    - gocyclo
+    - gofmt
+    - goimports
+    #- gomnd
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - lll
+    - misspell
+    - nakedret
+    - noctx
+    - nolintlint
+    - rowserrcheck
+    - staticcheck
+    - structcheck
+    - stylecheck
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - varcheck
+    - whitespace
+
+  # don't enable:
+  # - asciicheck
+  # - gochecknoglobals
+  # - gocognit
+  # - godot
+  # - godox
+  # - goerr113
+  # - interfacer
+  # - maligned
+  # - nestif
+  # - prealloc
+  # - testpackage
+  # - revive
+  # - wsl
+
+run:
+  skip-dirs:
+    - tests
+  --skip-files:
+    - tests/*.go
+  tests: false

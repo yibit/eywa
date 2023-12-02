@@ -1,0 +1,15 @@
+eywa.svg
+coverage.*
+realize*
+dist
+bin/eywa
+go.sum
+vendor
+.DS_Store
+.idea
+*.puml
+*.log
+*.txt
+*.tags
+trace.*
+*~
