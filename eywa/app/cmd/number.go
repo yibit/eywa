@@ -4,6 +4,7 @@ import (
 	"eywa/logger"
 	"eywa/number"
 	"eywa/utils"
+	"math/bits"
 	"strconv"
 	"strings"
 
@@ -17,7 +18,7 @@ var Number = &cli.Command{
 	Description: "Start to convert number",
 	Action:      executeNumber,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "bit", "`type` of action (bit)"),
+		utils.StringFlag("type", "bits", "`type` of action (ones|bits)"),
 		utils.StringFlag("num", "100", "then `number`"),
 	},
 }
@@ -31,10 +32,12 @@ func executeNumber(ctx *cli.Context) error {
 		return nil
 	}
 	switch strings.ToLower(ctx.String("type")) {
-	case "bit":
-		log.Infof("%d", number.BitCount(n))
+	case "ones":
+		log.Infof("%d", number.OnesCount(n))
+	case "bits":
+		log.Infof("%s", number.Bits(n))
 	default:
-		log.Infof("%d", number.BitCount(n))
+		log.Infof("%b:%d", n, bits.OnesCount(uint(n)))
 	}
 
 	return nil
