@@ -10,18 +10,19 @@ import (
 func Json(data string) string {
 	var obj map[string]interface{}
 
-	json.Unmarshal([]byte(data), &obj)
+	if err := json.Unmarshal([]byte(data), &obj); err != nil {
+		return err.Error()
+	}
 
-	// Make a custom formatter with indent set
-	fmt := colorjson.NewFormatter()
-	fmt.Indent = 2
-	fmt.KeyColor = color.New(color.FgBlue)
+	formatter := colorjson.NewFormatter()
+	formatter.Indent = 2
+	formatter.KeyColor = color.New(color.FgBlue)
+	formatter.NullColor = color.New(color.FgRed)
 
-	// Marshall the Colorized JSON
-	s, err := fmt.Marshal(obj)
+	out, err := formatter.Marshal(obj)
 	if err != nil {
 		return err.Error()
 	}
 
-	return string(s)
+	return string(out)
 }

@@ -16,7 +16,7 @@ var Format = &cli.Command{
 	Description: "Start to format",
 	Action:      executeFormat,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "json", "`type` of action (json|xml)"),
+		utils.StringFlag("type", "json", "`type` of action (json|yaml)"),
 	},
 }
 
@@ -33,6 +33,8 @@ func executeFormat(ctx *cli.Context) error {
 	switch strings.ToLower(ctx.String("type")) {
 	case "json":
 		log.Infof("\n%s", format.Json(data))
+	case "yaml":
+		log.Infof("\n%s", format.Yaml(data, 2))
 	default:
 		log.Infof("\n%s", format.Json(data))
 	}
