@@ -17,7 +17,7 @@ var Encoding = &cli.Command{
 	Description: "Start to encoding",
 	Action:      executeEncoding,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "base64", "`type` of encoding (number|uuid|random|hex)"),
+		utils.StringFlag("type", "base64", "`type` of encoding (number|uuid|ulid|random|hex)"),
 		utils.StringFlag("mode", "decoding", "`mode` of encoding (encoding|decoding)"),
 		utils.StringFlag("num", "8", "`length` of string"),
 	},
@@ -27,7 +27,8 @@ func executeEncoding(ctx *cli.Context) error {
 	logger.Init(ctx)
 	log.Debugf("type:%s", ctx.String("type"))
 
-	if ctx.NArg() < 1 && ctx.String("type") != "uuid" && ctx.String("type") != "random" {
+	if ctx.NArg() < 1 && ctx.String("type") != "uuid" &&
+		ctx.String("type") != "random" && ctx.String("type") != "ulid" {
 		log.Errorf("ctx.NArg() is less than 2(%d)", ctx.NArg())
 		return nil
 	}
@@ -49,6 +50,12 @@ func executeEncoding(ctx *cli.Context) error {
 	case "random":
 		n, _ := strconv.ParseUint(ctx.String("num"), 10, 64)
 		log.Infof("%s", utils.RandomString(int(n)))
+	case "ulid":
+		if uuid, err := utils.ULID(); err != nil {
+			return err
+		} else {
+			log.Infof("%s", uuid)
+		}
 	case "uuid":
 		log.Infof("%s", utils.UUID())
 	default:
