@@ -19,7 +19,6 @@ func Yaml(file string, indent int) string {
 	defer r.Close()
 
 	var out bytes.Buffer
-
 	if err := FormatStream(r, &out, indent); err != nil {
 		return err.Error()
 	}

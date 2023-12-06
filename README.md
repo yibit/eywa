@@ -14,7 +14,7 @@ Running
 ---------
 
 ```
-make check
+bin/eywa -h
 ```
 
 ![meta](art/eywa.png)
