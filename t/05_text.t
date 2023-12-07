@@ -27,7 +27,7 @@ text -t lower "An Open guide to data structures and algorithms"
 an open guide to data structures and algorithms
 --- err
 
-=== TEST 3: default
+=== TEST 3: title
 --- cmd
 
 text -t title "An Open guide to data structures and algorithms"
