@@ -4,7 +4,8 @@
         "*.c": "c",
         "*.sh": "shellscript",
         "*.lua": "lua",
-        "*.go": "go"
+        "*.go": "go",
+        "*.t": "perl"
     },
     "files.encoding": "utf8",
     "files.exclude": {
