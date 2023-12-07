@@ -11,7 +11,8 @@ func Run(version string, args []string) {
 	app.Name = "eywa"
 	app.Version = version
 	app.Usage = "a toolkit for hacking"
-	app.Commands = []*cli.Command{cmd.Differ, cmd.Text, cmd.Crypto, cmd.Encoding, cmd.Number, cmd.Format}
+	app.Commands = []*cli.Command{cmd.Differ, cmd.Text, cmd.Crypto,
+		cmd.Encoding, cmd.Number, cmd.Format}
 
 	_ = app.Run(args)
 }

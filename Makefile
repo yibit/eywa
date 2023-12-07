@@ -46,6 +46,9 @@ debug:
 dev: vendor
 	cd $(NAME) && go build -mod=vendor -ldflags=$(LDFLAGS) -o $(MYHOME)/bin/$(NAME)
 
+check:
+	@prove t
+
 vendor:
 	cd $(NAME) && go mod vendor
 
