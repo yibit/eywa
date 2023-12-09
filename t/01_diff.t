@@ -10,15 +10,16 @@ __DATA__
 === TEST 1: text
 --- cmd
 
-diff -t text a.txt b.txt
+diff -t text
 
---- fileA: a.txt
+--- fileA
 xcYcc
 
---- filleB: b.txt
+--- fileB
 xcccc
 
 --- args
 --- out_like
 xcYccc
+
 --- err

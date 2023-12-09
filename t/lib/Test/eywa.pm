@@ -49,7 +49,8 @@ sub run_test ($) {
 
     my $cmd = "bin/eywa";
 
-    my $ssfile;
+    my $eywafileA;
+    my $eywafileB;
     if (defined $opts) {
         $cmd .= " $opts";
     }
@@ -60,6 +61,26 @@ sub run_test ($) {
 
     if (defined $args) {
     	$cmd .= " $args";
+    }
+
+    if (defined $block->fileA) {
+        $eywafileA = File::Temp->new() . ".eywa";
+        open my $out, ">$eywafileA" or
+            bail_out("cannot open $eywafileA for writing: $!");
+        print $out ($block->fileA);
+        close $out;
+
+        $cmd .= " $eywafileA";
+    }
+
+    if (defined $block->fileB) {
+        $eywafileB = File::Temp->new() . ".eywa";
+        open my $out, ">$eywafileB" or
+            bail_out("cannot open $eywafileB for writing: $!");
+        print $out ($block->fileB);
+        close $out;
+
+        $cmd .= " $eywafileB";
     }
 
     #warn "CMD: $cmd\n";
@@ -88,8 +109,12 @@ sub run_test ($) {
 
     my $ret = ($? >> 8);
 
-    if (defined $ssfile) {
-        unlink $ssfile;
+    if (defined $eywafileA) {
+        unlink $eywafileA;
+    }
+
+    if (defined $eywafileB) {
+        unlink $eywafileB;
     }
 
     if (defined $block->out) {
