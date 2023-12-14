@@ -1,11 +1,11 @@
-NAME := eywa
-VERSION := $(shell cat ./VERSION |awk 'NR==1 { print $1; }')
+NAME = eywa
+VERSION = $(shell cat ./VERSION |awk 'NR==1 { print $1; }')
 GOMODULES = ./...
-MYHOME := $(PWD)
+MYHOME = $(PWD)
 GOFILES = $(shell cd $(NAME) && go list $(GOMODULES) |grep -v /vendor/)
 BRANCH = $(shell git rev-parse --abbrev-ref HEAD)
 COMMIT = $(shell git rev-parse --short HEAD)
-RELEASEDATE=$(shell date '+%Y%m%d%H%M%S')
+RELEASEDATE = $(shell date '+%Y%m%d%H%M%S')
 LDFLAGS = "-X main.Version=$(NAME)-$(VERSION)-$(BRANCH)-$(COMMIT)-$(RELEASEDATE)-$@ -s -w"
 
 all: usage
