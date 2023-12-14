@@ -10,7 +10,7 @@ __DATA__
 === TEST 1: text
 --- cmd
 
-diff -t text
+eywa diff -t text
 
 --- fileA
 xcYcc

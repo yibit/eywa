@@ -10,7 +10,7 @@ __DATA__
 === TEST 1: bits
 --- cmd
 
-number -type bits -num 9
+eywa number -type bits -num 9
 
 --- args
 --- out_like
@@ -20,7 +20,7 @@ number -type bits -num 9
 === TEST 2: bits
 --- cmd
 
-number -type ones -num 9
+eywa number -type ones -num 9
 
 --- args
 --- out_like
@@ -30,7 +30,7 @@ number -type ones -num 9
 === TEST 3: default
 --- cmd
 
-number -type default -num 9
+eywa number -type default -num 9
 
 --- args
 --- out_like

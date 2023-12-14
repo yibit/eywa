@@ -47,7 +47,7 @@ sub run_test ($) {
     my $opts = $block->opts;
     my $args = $block->args;
 
-    my $cmd = "bin/eywa";
+    my $cmd = "bin/";
 
     my $eywafileA;
     my $eywafileB;
@@ -56,7 +56,7 @@ sub run_test ($) {
     }
 
     if (defined $block->cmd) {
-        $cmd .= " " . $block->cmd;
+        $cmd .= $block->cmd;
     }
 
     if (defined $args) {

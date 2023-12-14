@@ -10,7 +10,7 @@ __DATA__
 === TEST 1: crypto md5
 --- cmd
 
-crypto -type md5 "pick"
+eywa crypto -type md5 "pick"
 
 --- args
 --- out_like

@@ -10,7 +10,7 @@ __DATA__
 === TEST 1: upper
 --- cmd
 
-text -t upper "An Open guide to data structures and algorithms"
+eywa text -t upper "An Open guide to data structures and algorithms"
 
 --- args
 --- out_like
@@ -20,7 +20,7 @@ AN OPEN GUIDE TO DATA STRUCTURES AND ALGORITHMS
 === TEST 2: lower
 --- cmd
 
-text -t lower "An Open guide to data structures and algorithms"
+eywa text -t lower "An Open guide to data structures and algorithms"
 
 --- args
 --- out_like
@@ -30,7 +30,7 @@ an open guide to data structures and algorithms
 === TEST 3: title
 --- cmd
 
-text -t title "An Open guide to data structures and algorithms"
+eywa text -t title "An Open guide to data structures and algorithms"
 
 --- args
 --- out_like

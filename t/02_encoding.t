@@ -10,7 +10,7 @@ __DATA__
 === TEST 1: hex
 --- cmd
 
-encoding -type hex 313233343536375f6577654077737772255e58
+eywa encoding -type hex 313233343536375f6577654077737772255e58
 
 --- args
 --- out_like
@@ -20,7 +20,7 @@ encoding -type hex 313233343536375f6577654077737772255e58
 === TEST 2: hex -mode encoding
 --- cmd
 
-encoding -type hex -mode encoding 313233343
+eywa encoding -type hex -mode encoding 313233343
 
 --- args
 --- out_like
