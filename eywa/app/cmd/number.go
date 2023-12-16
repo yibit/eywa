@@ -31,6 +31,7 @@ func executeNumber(ctx *cli.Context) error {
 	if err != nil {
 		return nil
 	}
+
 	switch strings.ToLower(ctx.String("type")) {
 	case "ones":
 		log.Infof("%d", number.OnesCount(n))

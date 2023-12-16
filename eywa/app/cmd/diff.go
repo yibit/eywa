@@ -6,6 +6,7 @@ import (
 	"eywa/utils"
 	"io"
 	"os"
+	"strings"
 
 	"github.com/charmbracelet/log"
 	"github.com/urfave/cli/v2"
@@ -40,7 +41,7 @@ func executeDiff(ctx *cli.Context) error {
 		return err
 	}
 
-	differ.Diff(ctx.String("type"), x, y)
+	differ.Diff(strings.ToLower(ctx.String("type")), x, y)
 
 	return nil
 }
