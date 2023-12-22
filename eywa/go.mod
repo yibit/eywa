@@ -9,13 +9,14 @@ require (
 	github.com/charmbracelet/log v0.2.2
 	github.com/fatih/color v1.16.0
 	github.com/google/uuid v1.3.0
+	github.com/miekg/dns v1.1.57
 	github.com/oklog/ulid/v2 v2.1.0
 	github.com/sergi/go-diff v1.2.0
 	github.com/sony/sonyflake v1.1.0
 	github.com/speps/go-hashids/v2 v2.0.1
 	github.com/urfave/cli/v2 v2.6.0
 	github.com/yudai/gojsondiff v1.0.0
-	golang.org/x/text v0.9.0
+	golang.org/x/text v0.13.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -43,6 +44,8 @@ require (
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
-	golang.org/x/net v0.10.0 // indirect
+	golang.org/x/mod v0.12.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/sys v0.14.0 // indirect
+	golang.org/x/tools v0.13.0 // indirect
 )

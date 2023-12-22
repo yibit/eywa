@@ -50,5 +50,10 @@
         "MD025": {
             "front_matter_title": ""
         }
+    },
+    "[go][go.mod]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
     }
 }
