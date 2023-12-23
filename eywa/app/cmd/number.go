@@ -19,7 +19,7 @@ var Number = &cli.Command{
 	Action:      executeNumber,
 	Flags: []cli.Flag{
 		utils.StringFlag("type", "bits", "`type` of action (ones|bits)"),
-		utils.StringFlag("num", "100", "then `number`"),
+		utils.StringFlag("num", "100", "the `number`"),
 	},
 }
 
