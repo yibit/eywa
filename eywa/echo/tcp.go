@@ -38,10 +38,9 @@ func (s *TCP) process() {
 }
 
 func run(conn net.Conn) {
+	buf := make([]byte, BuffSize)
 	for {
-		buf := make([]byte, BuffSize)
-
-		n, err := conn.Read(buf)
+		n, err := conn.Read(buf[0:])
 		if err != nil {
 			log.Printf("%s\n", err.Error())
 			return

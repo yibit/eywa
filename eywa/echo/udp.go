@@ -34,7 +34,7 @@ func (s *UDP) process() {
 		if err != nil {
 			continue
 		}
-		s.Send(addr, buf[0:n])
+		s.Send(addr, buf[:n])
 	}
 }
 
