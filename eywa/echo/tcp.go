@@ -9,16 +9,17 @@ import (
 
 type TCP struct {
 	Port     string
-	Conn     net.Conn
 	Listener net.Listener
 }
 
 func (s TCP) Start(port string) {
 	var err error
-	s.Conn, _, err = utils.TCPServer(":" + port)
+	s.Listener, err = utils.TCPServer(":" + port)
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	defer s.Listener.Close()
 
 	go s.process()
 
@@ -27,10 +28,23 @@ func (s TCP) Start(port string) {
 
 func (s *TCP) process() {
 	for {
-		message, err := bufio.NewReader(s.Conn).ReadString('\n')
+		conn, err := s.Listener.Accept()
 		if err != nil {
-			log.Fatal(err)
+			log.Printf("%s\n", err.Error())
+			continue
 		}
-		s.Conn.Write([]byte(message + "\n"))
+
+		go run(conn)
+	}
+}
+
+func run(conn net.Conn) {
+	for {
+		message, err := bufio.NewReader(conn).ReadString('\n')
+		if err != nil {
+			log.Printf("%s\n", err.Error())
+			return
+		}
+		conn.Write([]byte(message + "\n"))
 	}
 }

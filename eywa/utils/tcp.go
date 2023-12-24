@@ -9,17 +9,13 @@ import (
 )
 
 // TCPServer init and return an TCP address
-func TCPServer(addr string) (net.Conn, net.Listener, error) {
+func TCPServer(addr string) (net.Listener, error) {
 	ln, err := net.Listen("tcp", addr)
 	if err != nil {
-		return nil, nil, err
+		return nil, err
 	}
 
-	conn, err := ln.Accept()
-	if err != nil {
-		return nil, nil, err
-	}
-	return conn, ln, nil
+	return ln, nil
 }
 
 // TCPClient create a TCP client
