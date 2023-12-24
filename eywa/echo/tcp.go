@@ -1,7 +1,6 @@
 package echo
 
 import (
-	"bufio"
 	"eywa/utils"
 	"log"
 	"net"
@@ -40,11 +39,17 @@ func (s *TCP) process() {
 
 func run(conn net.Conn) {
 	for {
-		message, err := bufio.NewReader(conn).ReadString('\n')
+		buf := make([]byte, BuffSize)
+
+		n, err := conn.Read(buf)
 		if err != nil {
 			log.Printf("%s\n", err.Error())
 			return
 		}
-		conn.Write([]byte(message + "\n"))
+
+		if _, err = conn.Write(buf[:n]); err != nil {
+			log.Printf("%s\n", err.Error())
+			continue
+		}
 	}
 }
