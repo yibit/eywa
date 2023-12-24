@@ -13,7 +13,7 @@ type TCP struct {
 	Listener net.Listener
 }
 
-func (s *TCP) Start(port string) {
+func (s TCP) Start(port string) {
 	var err error
 	s.Conn, _, err = utils.TCPServer(":" + port)
 	if err != nil {
@@ -21,6 +21,8 @@ func (s *TCP) Start(port string) {
 	}
 
 	go s.process()
+
+	select {}
 }
 
 func (s *TCP) process() {

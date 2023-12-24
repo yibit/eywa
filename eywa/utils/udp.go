@@ -23,7 +23,6 @@ func UDPServer(address string, buffSize int) (*net.UDPAddr, *net.UDPConn, error)
 
 // UDPClient init and return an UDP client
 func UDPClient(address string) (*net.UDPAddr, *net.UDPConn, error) {
-
 	addr := resolveUDPAddr(address)
 	conn, err := net.DialUDP("udp", nil, addr)
 	if err != nil {

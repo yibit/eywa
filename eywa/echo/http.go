@@ -11,7 +11,7 @@ type HttpD struct {
 	Port string
 }
 
-func (s *HttpD) Start(port string) {
+func (s HttpD) Start(port string) {
 	server := http.Server{
 		Addr: ":" + port,
 	}

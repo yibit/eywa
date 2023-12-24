@@ -15,7 +15,7 @@ type UDP struct {
 	Conn *net.UDPConn
 }
 
-func (s *UDP) Start(port string) {
+func (s UDP) Start(port string) {
 	var err error
 	_, s.Conn, err = utils.UDPServer(":"+port, BuffSize)
 	if err != nil {
@@ -23,6 +23,8 @@ func (s *UDP) Start(port string) {
 	}
 
 	go s.process()
+
+	select {}
 }
 
 func (s *UDP) process() {

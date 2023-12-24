@@ -20,17 +20,18 @@ var Echo = &cli.Command{
 }
 
 func ExecuteEcho(ctx *cli.Context) error {
+	var r echo.Echoer
+
 	switch strings.ToLower(ctx.String("type")) {
 	case "http":
-		s := echo.HttpD{}
-		s.Start(ctx.String("port"))
+		r = echo.HttpD{}
 	case "tcp":
-		s := echo.TCP{}
-		s.Start(ctx.String("port"))
+		r = echo.TCP{}
 	default:
-		s := echo.UDP{}
-		s.Start(ctx.String("port"))
+		r = echo.UDP{}
 	}
+
+	r.Start(ctx.String("port"))
 
 	return nil
 }
