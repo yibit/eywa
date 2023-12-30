@@ -1,5 +1,5 @@
 package echo
 
-type Echoer interface {
+type Echo interface {
 	Start(port string)
 }

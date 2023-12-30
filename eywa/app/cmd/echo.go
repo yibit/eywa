@@ -20,7 +20,7 @@ var Echo = &cli.Command{
 }
 
 func ExecuteEcho(ctx *cli.Context) error {
-	var r echo.Echoer
+	var r echo.Echo
 
 	switch strings.ToLower(ctx.String("type")) {
 	case "http":
