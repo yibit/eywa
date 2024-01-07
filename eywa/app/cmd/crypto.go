@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"encoding/hex"
 	"eywa/crypto"
 	"eywa/logger"
 	"eywa/utils"
@@ -29,12 +30,24 @@ func executeCrypto(ctx *cli.Context) error {
 		return nil
 	}
 
-	data := ctx.Args().Get(0)
 	switch strings.ToLower(ctx.String("type")) {
 	case "md5":
-		log.Infof("%s", crypto.MD5(data))
+		log.Infof("%s", crypto.MD5(ctx.Args().Get(0)))
+	case "aes":
+		if ctx.NArg() != 4 {
+			log.Errorf("ctx.NArg() != 4")
+			return nil
+		}
+		log.Infof("%s", hex.EncodeToString(crypto.EncryptAES(ctx.Args().Get(0), ctx.Args().Get(1), []byte(ctx.Args().Get(2)), ctx.Args().Get(3))))
 	default:
-		log.Infof("%s", crypto.MD5(data))
+		if ctx.NArg() != 2 {
+			log.Errorf("ctx.NArg() != 2")
+			return nil
+		}
+		data, err := crypto.EncryptDES([]byte(ctx.Args().Get(0)), []byte(ctx.Args().Get(1)))
+		if err == nil {
+			log.Infof("%s", hex.EncodeToString(data))
+		}
 	}
 
 	return nil
