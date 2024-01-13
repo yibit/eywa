@@ -55,5 +55,10 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
         }
-    }
+    },
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.automationProfile.osx": {
+        "path": "/usr/local/bin/zsh"
+    },
+   "terminal.integrated.shellIntegration.enabled": false,
 }

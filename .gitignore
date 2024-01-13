@@ -3,7 +3,6 @@ coverage.*
 realize*
 dist
 bin/eywa
-go.sum
 vendor
 .DS_Store
 .idea

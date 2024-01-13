@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/http/httputil"
 )
 
 type HttpD struct {
@@ -28,6 +29,9 @@ func writeAck(w http.ResponseWriter, status int, message string) {
 }
 
 func (s *HttpD) Echo(w http.ResponseWriter, r *http.Request) {
+	if dump, err := httputil.DumpRequest(r, true); err == nil {
+		log.Printf("%s\n", string(dump))
+	}
 	data, err := io.ReadAll(r.Body)
 	if err != nil {
 		writeAck(w, http.StatusBadRequest, "")

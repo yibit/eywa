@@ -43,7 +43,7 @@ func run(conn net.Conn) {
 		n, err := conn.Read(buf[0:])
 		if err != nil {
 			log.Printf("%s\n", err.Error())
-			return
+			break
 		}
 
 		if _, err = conn.Write(buf[:n]); err != nil {
@@ -51,4 +51,6 @@ func run(conn net.Conn) {
 			continue
 		}
 	}
+
+	defer conn.Close()
 }
