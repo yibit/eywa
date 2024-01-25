@@ -34,6 +34,8 @@ func (s *UDP) process() {
 		if err != nil {
 			continue
 		}
+		log.Printf("%v", buf[:n])
+
 		s.Send(addr, buf[:n])
 	}
 }
