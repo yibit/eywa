@@ -45,7 +45,6 @@ func FormatStream(r io.Reader, out io.Writer, indent int) error {
 	}
 
 	err := d.Decode(&in)
-
 	for err == nil {
 		e := yaml.NewEncoder(out)
 		e.SetIndent(indent)
@@ -59,9 +58,9 @@ func FormatStream(r io.Reader, out io.Writer, indent int) error {
 		}
 	}
 
-	if err != nil && err != io.EOF {
-		return err
+	if err == io.EOF {
+		return nil
 	}
 
-	return nil
+	return err
 }
