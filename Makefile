@@ -27,7 +27,7 @@ usage:
 	@echo "    release     release a version                   "
 	@echo "                                                    "
 
-setup: clean vendor build
+setup: clean build
 
 build:
 	@sh tools/git-status-check.sh
@@ -43,20 +43,11 @@ ox:
 debug:
 	cd $(NAME) && CGO_ENABLED=0 go build -tags debug -ldflags=$(LDFLAGS) -v -x -a -o $(MYHOME)/bin/$(NAME) -gcflags "all=-N -l"
 
-dev: vendor
+dev:
 	cd $(NAME) && go build -mod=vendor -ldflags=$(LDFLAGS) -o $(MYHOME)/bin/$(NAME)
 
 check:
 	@prove t
-
-vendor:
-	cd $(NAME) && go mod vendor
-
-mod:
-	cd $(NAME) && go mod download
-
-tidy:
-	cd $(NAME) && go mod tidy && go mod vendor
 
 cov:
 	cd $(NAME) && go test -v $(GOMODULES) -coverprofile=coverage.out
@@ -82,6 +73,9 @@ golangci-lint:
 # https://www.praetorian.com/blog/introducing-gokart/
 gokart:
 	gokart scan $(NAME)
+
+nilaway:
+	cd $(NAME) && nilaway ./...
 
 # https://github.com/mvdan/sh
 shfmt:
