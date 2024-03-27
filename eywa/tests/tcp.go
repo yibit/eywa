@@ -30,12 +30,12 @@ func main() {
 		text, _ := reader.ReadString('\n')
 		fmt.Fprintf(conn, text)
 
-		if strings.ToUpper(strings.TrimSpace(text)) == "STOP" {
-			fmt.Println("client exiting...")
+		if strings.ToUpper(strings.TrimSpace(text)) == "QUIT" {
+			fmt.Println("> exiting...")
 			return
 		}
 
 		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Printf("<< %s\n", message)
+		fmt.Printf("<< %s", message)
 	}
 }

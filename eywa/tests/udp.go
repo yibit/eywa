@@ -36,8 +36,8 @@ func main() {
 			return
 		}
 
-		if strings.ToUpper(strings.TrimSpace(text)) == "STOP" {
-			fmt.Println("exiting client!")
+		if strings.ToUpper(strings.TrimSpace(text)) == "QUIT" {
+			fmt.Println("> exiting...")
 			return
 		}
 		buffer := make([]byte, 1024)
@@ -47,6 +47,6 @@ func main() {
 			return
 		}
 
-		fmt.Printf("<< %s\n", string(buffer[0:n]))
+		fmt.Printf("<< %s", string(buffer[0:n]))
 	}
 }
