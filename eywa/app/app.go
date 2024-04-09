@@ -12,7 +12,8 @@ func Run(version string, args []string) {
 	app.Version = version
 	app.Usage = "a toolkit for hacking"
 	app.Commands = []*cli.Command{cmd.Crypto, cmd.Differ, cmd.Dns,
-		cmd.Encoding, cmd.Echo, cmd.Format, cmd.Number, cmd.Text}
+		cmd.Encoding, cmd.Echo, cmd.Format, cmd.Number, cmd.Text,
+		cmd.HTTP}
 
 	_ = app.Run(args)
 }
