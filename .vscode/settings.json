@@ -21,6 +21,17 @@
         "**/cref": true
     },
     "go.useLanguageServer": true,
+    "gopls": {
+        // Add parameter placeholders when completing a function.
+       "usePlaceholders": true,
+
+       // If true, enable additional analyses with staticcheck.
+       // Warning: This will significantly increase memory usage.
+       "staticcheck": false,
+
+       // gofumpt
+       "formatting.gofumpt": true,
+   },
     "[go]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
@@ -34,14 +45,6 @@
         "editor.codeActionsOnSave": {
             "source.organizeImports": true,
         },
-    },
-    "gopls": {
-         // Add parameter placeholders when completing a function.
-        "usePlaceholders": true,
-
-        // If true, enable additional analyses with staticcheck.
-        // Warning: This will significantly increase memory usage.
-        "staticcheck": false,
     },
     "plantuml.diagramsRoot": "docs/diagrams/src",
     "plantuml.exportOutDir": "docs/diagrams/out",

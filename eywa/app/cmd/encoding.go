@@ -1,11 +1,12 @@
 package cmd
 
 import (
+	"strconv"
+	"strings"
+
 	"eywa/encoding"
 	"eywa/logger"
 	"eywa/utils"
-	"strconv"
-	"strings"
 
 	"github.com/charmbracelet/log"
 	"github.com/urfave/cli/v2"

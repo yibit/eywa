@@ -2,10 +2,11 @@ package cmd
 
 import (
 	"encoding/hex"
+	"strings"
+
 	"eywa/crypto"
 	"eywa/logger"
 	"eywa/utils"
-	"strings"
 
 	"github.com/charmbracelet/log"
 	"github.com/urfave/cli/v2"

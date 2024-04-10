@@ -1,12 +1,13 @@
 package cmd
 
 import (
-	"eywa/differ"
-	"eywa/logger"
-	"eywa/utils"
 	"io"
 	"os"
 	"strings"
+
+	"eywa/differ"
+	"eywa/logger"
+	"eywa/utils"
 
 	"github.com/charmbracelet/log"
 	"github.com/urfave/cli/v2"

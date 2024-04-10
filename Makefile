@@ -53,8 +53,9 @@ cov:
 	cd $(NAME) && go test -v $(GOMODULES) -coverprofile=coverage.out
 	cd $(NAME) && go tool cover -html=coverage.out -o coverage.html
 
+# https://github.com/mvdan/gofumpt
 fmt:
-	cd $(NAME) && go fmt $(GOFILES)
+	gofumpt -l -w $(NAME)
 
 lint:
 	cd $(NAME) && golint $(GOFILES)
@@ -76,6 +77,11 @@ gokart:
 
 nilaway:
 	cd $(NAME) && nilaway ./...
+
+# https://github.com/charmbracelet/freeze
+freeze:
+	freeze --theme dracula --border.width 1 --border.color "#515151" --border.radius 8 \
+		$(NAME)/app/app.go -o $(NAME).png
 
 # https://github.com/mvdan/sh
 shfmt:

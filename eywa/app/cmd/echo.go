@@ -1,9 +1,10 @@
 package cmd
 
 import (
+	"strings"
+
 	"eywa/echo"
 	"eywa/utils"
-	"strings"
 
 	"github.com/urfave/cli/v2"
 )

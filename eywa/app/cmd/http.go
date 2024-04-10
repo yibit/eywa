@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"eywa/utils"
 	"fmt"
 	"net/http"
 	"strings"
+
+	"eywa/utils"
 
 	"github.com/urfave/cli/v2"
 )

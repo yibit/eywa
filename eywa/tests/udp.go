@@ -2,16 +2,15 @@ package main
 
 import (
 	"bufio"
-	"eywa/utils"
 	"flag"
 	"fmt"
 	"os"
 	"strings"
+
+	"eywa/utils"
 )
 
-var (
-	Port = "1037"
-)
+var Port = "1037"
 
 func main() {
 	flag.StringVar(&Port, "p", Port, "`port` of server")

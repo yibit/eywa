@@ -36,7 +36,6 @@ func GetFiles(path, ext string) ([]string, error) {
 
 		return nil
 	})
-
 	if err != nil {
 		return nil, errors.New("filepath.Walk() failed:" + err.Error())
 	}

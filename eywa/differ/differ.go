@@ -7,7 +7,6 @@ import (
 )
 
 func Diff(dataType string, aData, bData []byte) bool {
-
 	switch dataType {
 	case "json":
 		x, err := JsonDiffer(aData, bData)

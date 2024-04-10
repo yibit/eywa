@@ -1,10 +1,11 @@
 package cmd
 
 import (
-	"eywa/dns"
-	"eywa/utils"
 	"fmt"
 	"log"
+
+	"eywa/dns"
+	"eywa/utils"
 
 	"github.com/urfave/cli/v2"
 )

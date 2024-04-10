@@ -1,9 +1,10 @@
 package echo
 
 import (
-	"eywa/utils"
 	"log"
 	"net"
+
+	"eywa/utils"
 )
 
 const (
