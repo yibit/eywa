@@ -15,8 +15,8 @@ var Echo = &cli.Command{
 	Description: "Start to serve echo",
 	Action:      ExecuteEcho,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "http", "`type` of echo server protocol (http|tcp|udp)"),
-		utils.StringFlag("port", "1037", "`port` of server"),
+		utils.StringFlag("type", "t", "http", "`type` of echo server protocol (http|tcp|udp)"),
+		utils.StringFlag("port", "p", "1037", "`port` of server"),
 	},
 }
 

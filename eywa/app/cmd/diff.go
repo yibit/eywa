@@ -19,8 +19,8 @@ var Differ = &cli.Command{
 	Description: "Start to diff files",
 	Action:      executeDiff,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "json", "`type` of file to diff in (json|yaml|text|xml)"),
-		utils.StringFlag("level", "info", "`level` of logger in (debug|info|warn|error)"),
+		utils.StringFlag("type", "t", "json", "`type` of file to diff in (json|yaml|text|xml)"),
+		utils.StringFlag("level", "l", "info", "`level` of logger in (debug|info|warn|error)"),
 	},
 }
 

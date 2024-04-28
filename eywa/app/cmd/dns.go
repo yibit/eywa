@@ -16,10 +16,10 @@ var Dns = &cli.Command{
 	Description: "Start to run dns",
 	Action:      ExecuteDns,
 	Flags: []cli.Flag{
-		utils.StringFlag("domain", "www.github.com", "name of `domain`"),
-		utils.StringFlag("server", "8.8.8.8:53", "host of dns `server`"),
-		utils.IntFlag("timeout", 5, "`timeout` of dns query"),
-		utils.BoolFlag("fqdn", false, "is it `fqdn` query"),
+		utils.StringFlag("domain", "d", "www.github.com", "name of `domain`"),
+		utils.StringFlag("server", "s", "8.8.8.8:53", "host of dns `server`"),
+		utils.IntFlag("timeout", "t", 5, "`timeout` of dns query"),
+		utils.BoolFlag("fqdn", "f", false, "is it `fqdn` query"),
 	},
 }
 

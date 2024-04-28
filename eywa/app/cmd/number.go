@@ -19,8 +19,8 @@ var Number = &cli.Command{
 	Description: "Start to convert number",
 	Action:      executeNumber,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "bits", "`type` of action (ones|bits|hex|int)"),
-		utils.StringFlag("num", "100", "the `number`"),
+		utils.StringFlag("type", "t", "bits", "`type` of action (ones|bits|hex|int)"),
+		utils.StringFlag("num", "n", "100", "the `number`"),
 	},
 }
 

@@ -18,9 +18,9 @@ var Encoding = &cli.Command{
 	Description: "Start to encoding",
 	Action:      executeEncoding,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "base64", "`type` of encoding (number|uuid|ulid|random|hex)"),
-		utils.StringFlag("mode", "decoding", "`mode` of encoding (encoding|decoding)"),
-		utils.StringFlag("num", "8", "`length` of string"),
+		utils.StringFlag("type", "t", "base64", "`type` of encoding (number|uuid|ulid|random|hex)"),
+		utils.StringFlag("mode", "m", "decoding", "`mode` of encoding (encoding|decoding)"),
+		utils.StringFlag("num", "n", "8", "`length` of string"),
 	},
 }
 

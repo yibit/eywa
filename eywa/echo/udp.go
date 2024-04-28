@@ -25,6 +25,8 @@ func (s UDP) Start(port string) {
 
 	go s.process()
 
+	defer s.Conn.Close()
+
 	select {}
 }
 

@@ -16,8 +16,8 @@ var HTTP = &cli.Command{
 	Description: "Show status of HTTP code",
 	Action:      ExecuteHTTP,
 	Flags: []cli.Flag{
-		utils.IntFlag("code", 200, "`code` of status"),
-		utils.BoolFlag("list", false, "`list` all of status"),
+		utils.IntFlag("code", "c", 200, "`code` of status"),
+		utils.BoolFlag("list", "l", false, "`list` all of status"),
 	},
 }
 

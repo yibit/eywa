@@ -18,7 +18,7 @@ var Crypto = &cli.Command{
 	Description: "Start to crypto",
 	Action:      executeCrypto,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "md5", "`type` of crypto (aes|des|md5)"),
+		utils.StringFlag("type", "t", "md5", "`type` of crypto (aes|des|md5)"),
 	},
 }
 

@@ -17,7 +17,7 @@ var Format = &cli.Command{
 	Description: "Start to format",
 	Action:      executeFormat,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "json", "`type` of action (json|yaml)"),
+		utils.StringFlag("type", "t", "json", "`type` of action (json|yaml)"),
 	},
 }
 

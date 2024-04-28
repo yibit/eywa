@@ -17,7 +17,7 @@ var Text = &cli.Command{
 	Description: "Start to convert text",
 	Action:      executeText,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "title", "`type` of action (upper|lower|title)"),
+		utils.StringFlag("type", "t", "title", "`type` of action (upper|lower|title)"),
 	},
 }
 
