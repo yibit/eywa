@@ -14,7 +14,7 @@ func Run(version string, args []string) {
 	app.Commands = []*cli.Command{
 		cmd.Crypto, cmd.Differ, cmd.Dns,
 		cmd.Encoding, cmd.Echo, cmd.Format, cmd.Number, cmd.Text,
-		cmd.HTTP,
+		cmd.HTTP, cmd.Curl,
 	}
 
 	_ = app.Run(args)

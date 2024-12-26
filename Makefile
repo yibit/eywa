@@ -75,6 +75,10 @@ golangci-lint:
 gokart:
 	gokart scan $(NAME)
 
+# go install github.com/securego/gosec/v2/cmd/gosec@latest
+gosec:
+	gosec ./...
+
 nilaway:
 	cd $(NAME) && nilaway ./...
 
@@ -115,6 +119,10 @@ tag:
 # https://goreleaser.com/
 release:
 	cd $(NAME) && goreleaser release --rm-dist
+
+neon:
+	neon.sh create -p . -t "skin rose" -o $(NAME).puml -s -i
+	neon.sh create -p . -t "skin rose" -o $(NAME)-all.puml -s
 
 .PHONY: clean check distclean doc fmt test release
 

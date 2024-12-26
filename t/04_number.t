@@ -40,9 +40,19 @@ eywa number -type default -num 9
 === TEST 4: hex to int
 --- cmd
 
-eywa number -type int -n 0x1fff07
+eywa number -type int -n 0x517191ce1aedc622
 
 --- args
 --- out_like
-2096903
+5868632103841547810
+--- err
+
+=== TEST 5: int to hex
+--- cmd
+
+eywa number -type hex -n 5868632103841547810
+
+--- args
+--- out_like
+0x517191ce1aedc622
 --- err

@@ -1,18 +1,24 @@
 package text
 
 import (
+	"github.com/Lofanmi/pinyin-golang/pinyin"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
 
-func Title(s string) string {
-	return cases.Title(language.English).String(s)
+func Title(str string) string {
+	return cases.Title(language.English).String(str)
 }
 
-func Lower(s string) string {
-	return cases.Lower(language.English).String(s)
+func Lower(str string) string {
+	return cases.Lower(language.English).String(str)
 }
 
-func Upper(s string) string {
-	return cases.Upper(language.English).String(s)
+func Upper(str string) string {
+	return cases.Upper(language.English).String(str)
+}
+
+func Pinyin(str string) string {
+	dict := pinyin.NewDict()
+	return dict.Sentence(str).Unicode()
 }
