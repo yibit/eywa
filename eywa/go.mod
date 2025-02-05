@@ -10,6 +10,7 @@ require (
 	github.com/charmbracelet/log v0.2.2
 	github.com/fatih/color v1.16.0
 	github.com/google/uuid v1.3.0
+	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/miekg/dns v1.1.57
 	github.com/oklog/ulid/v2 v2.1.0
 	github.com/sergi/go-diff v1.2.0
@@ -28,11 +29,14 @@ require (
 )
 
 require (
+	github.com/adamzy/cedar-go v0.0.0-20170805034717-80a9c64b256d // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/charmbracelet/lipgloss v0.7.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/hokaccha/go-prettyjson v0.0.0-20211117102719-0474bc63780f // indirect
+	github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d // indirect
+	github.com/liuzl/da v0.0.0-20180704015230-14771aad5b1d // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect

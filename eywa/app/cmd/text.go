@@ -17,7 +17,7 @@ var Text = &cli.Command{
 	Description: "Start to convert text",
 	Action:      executeText,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "t", "title", "`type` of action (upper|lower|title|sub|pinyin)"),
+		utils.StringFlag("type", "t", "title", "`type` of action (upper|lower|title|sub|pinyin|s2t)"),
 	},
 }
 
@@ -45,6 +45,8 @@ func executeText(ctx *cli.Context) error {
 		log.Infof("%s", strings.ReplaceAll(data, ctx.Args().Get(1), ctx.Args().Get(2)))
 	case "pinyin":
 		log.Infof("%s\nINFO %s: %s", text.Pinyin(data), log.Default().GetPrefix(), data)
+	case "s2t":
+		log.Infof("%s", text.S2T(data))
 	default:
 		log.Infof("%s", text.Title(data))
 	}

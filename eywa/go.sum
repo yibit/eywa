@@ -2,6 +2,8 @@ github.com/Lofanmi/pinyin-golang v0.0.0-20211114132645-1db892057f20 h1:QUwRV0ZgS
 github.com/Lofanmi/pinyin-golang v0.0.0-20211114132645-1db892057f20/go.mod h1:J7A5UW8HA8b8lsEO/OshykiGGfmdQEnbDE53D23JsXE=
 github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2 h1:ZBbLwSJqkHBuFDA6DUhhse0IGJ7T5bemHyNILUjvOq4=
 github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2/go.mod h1:VSw57q4QFiWDbRnjdX8Cb3Ow0SFncRw+bA/ofY6Q83w=
+github.com/adamzy/cedar-go v0.0.0-20170805034717-80a9c64b256d h1:ir/IFJU5xbja5UaBEQLjcvn7aAU01nqU/NUyOBEU+ew=
+github.com/adamzy/cedar-go v0.0.0-20170805034717-80a9c64b256d/go.mod h1:PRWNwWq0yifz6XDPZu48aSld8BWwBfr2JKB2bGWiEd4=
 github.com/ajankovic/xdiff v0.0.1 h1:V1cj8t5xwYzm6ZGPqPOlAc9AIajXuTEn41D/1MJBWMM=
 github.com/ajankovic/xdiff v0.0.1/go.mod h1:SUmEZ67uB97I0zkiuQ+lb+LOms9ipn8X+p+2RdJV710=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1 h1:HwpRHbFMcZLEVr42D4p7XBqjyuxQH5SMiErDT4WkJ2k=
@@ -45,6 +47,12 @@ github.com/kr/pretty v0.1.0/go.mod h1:dAy3ld7l9f0ibDNOQOHHMYYIIbhfbHSm3C4ZsoJORN
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
+github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d h1:qSmEGTgjkESUX5kPMSGJ4pcBUtYVDdkNzMrjQyvRvp0=
+github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d/go.mod h1:x7SghIWwLVcJObXbjK7S2ENsT1cAcdJcPl7dRaSFog0=
+github.com/liuzl/da v0.0.0-20180704015230-14771aad5b1d h1:hTRDIpJ1FjS9ULJuEzu69n3qTgc18eI+ztw/pJv47hs=
+github.com/liuzl/da v0.0.0-20180704015230-14771aad5b1d/go.mod h1:7xD3p0XnHvJFQ3t/stEJd877CSIMkH/fACVWen5pYnc=
+github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5 h1:wnbHIeP1UX8ClYEWKGnw66PfYvReCHu9G5lXSte3Sqc=
+github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5/go.mod h1:7KaV9YIR92M1FpbczAcfYQ3UZ5ayT27pNtunDmXvLBo=
 github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=
 github.com/lucasb-eyer/go-colorful v1.2.0/go.mod h1:R4dSotOR9KMtayYi1e77YzuveK+i7ruzyGqttikkLy0=
 github.com/mattn/go-colorable v0.1.13 h1:fFA4WZxdEF4tXPZVKMLwD8oUnCTTo08duU7wxecdEvA=

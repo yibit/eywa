@@ -19,7 +19,7 @@ var Curl = &cli.Command{
 	Flags: []cli.Flag{
 		utils.StringFlag("method", "X", "GET", "type of `method` (POST|GET|PUT|DELETE|OPTIONS)"),
 		utils.StringSliceFlag("header", "H", []string{"Content-Type:application/json;charset=UTF-8"}, "fields of `headers`"),
-		utils.StringFlag("curl", "c", "", "curl of `object`"),
+		utils.StringFlag("url", "u", "", "`url` of object"),
 		utils.StringFlag("data", "d", "", "data of `body`"),
 	},
 }
@@ -36,7 +36,7 @@ func executeCurl(ctx *cli.Context) error {
 	case "PUT":
 		fallthrough
 	case "DELETE":
-		curl.InvokeYService(ctx.String("method"), ctx.String("curl"), ctx.StringSlice("header"), ctx.String("data"))
+		curl.InvokeYService(ctx.String("method"), ctx.String("url"), ctx.StringSlice("header"), ctx.String("data"))
 	default:
 		log.Errorf("%s not supported!", ctx.String("method"))
 	}

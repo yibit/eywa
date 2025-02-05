@@ -66,7 +66,7 @@ func InvokeYService(method, url string, headers []string, body string) bool {
 		return false
 	}
 
-	log.Warnf("%s", string(data))
+	log.Warnf("\n%s", string(data))
 
 	return true
 }
