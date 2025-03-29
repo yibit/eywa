@@ -9,6 +9,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.2.0
 	github.com/charmbracelet/log v0.2.2
 	github.com/fatih/color v1.16.0
+	github.com/go-chi/chi/v5 v5.2.1
 	github.com/google/uuid v1.3.0
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/miekg/dns v1.1.57
