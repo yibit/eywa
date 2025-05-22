@@ -8,6 +8,18 @@ import (
 	"net"
 )
 
+type UDPNode struct {
+	Conn     *net.UDPConn
+	Addr     net.Addr
+	MetaAddr string
+}
+
+func NewUDPNode(address string) *UDPNode {
+	return &UDPNode{
+		MetaAddr: address,
+	}
+}
+
 // UDPServer init and return an UDP address
 func UDPServer(address string, buffSize int) (*net.UDPAddr, *net.UDPConn, error) {
 	addr := resolveUDPAddr(address)
@@ -44,4 +56,28 @@ func resolveUDPAddr(address string) *net.UDPAddr {
 
 func Send(conn *net.UDPConn, message []byte) (int, error) {
 	return conn.Write(message)
+}
+
+func (m *UDPNode) InitClient(address string) (*UDPNode, error) {
+	var err error
+	m.Addr, m.Conn, err = UDPClient(address)
+	if err != nil {
+		return nil, err
+	}
+
+	m.MetaAddr = address
+
+	return m, nil
+}
+
+func (m *UDPNode) InitServer(address string, buffSize int) (*UDPNode, error) {
+	var err error
+	m.Addr, m.Conn, err = UDPServer(address, buffSize)
+	if err != nil {
+		return nil, err
+	}
+
+	m.MetaAddr = address
+
+	return m, nil
 }

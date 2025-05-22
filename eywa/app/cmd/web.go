@@ -23,6 +23,7 @@ var Web = &cli.Command{
 	Flags: []cli.Flag{
 		utils.StringFlag("directory", "d", "docs", "directory of server"),
 		utils.StringFlag("port", "p", "1036", "port of server"),
+		utils.BoolFlag("fix", "f", false, "`fix` path of URL (whether add `.html` to path)"),
 	},
 }
 
@@ -32,7 +33,7 @@ func serve(ctx *cli.Context) error {
 
 	workDir, _ := os.Getwd()
 	filesDir := http.Dir(filepath.Join(workDir, ctx.String("directory")))
-	FileServer(r, "/", filesDir)
+	FileServer(r, "/", filesDir, ctx.Bool("fix"))
 
 	log.Printf("serve: http://127.0.0.1:%s", ctx.String("port"))
 
@@ -43,7 +44,7 @@ func serve(ctx *cli.Context) error {
 
 // FileServer conveniently sets up a http.FileServer handler to serve
 // static files from a http.FileSystem.
-func FileServer(r chi.Router, path string, root http.FileSystem) {
+func FileServer(r chi.Router, path string, root http.FileSystem, fix bool) {
 	if strings.ContainsAny(path, "{}*") {
 		panic("FileServer does not permit any URL parameters.")
 	}
@@ -55,6 +56,12 @@ func FileServer(r chi.Router, path string, root http.FileSystem) {
 	path += "*"
 
 	r.Get(path, func(w http.ResponseWriter, r *http.Request) {
+		if fix && !strings.Contains(r.URL.Path, ".css") &&
+			!strings.Contains(r.URL.Path, ".js") &&
+			!strings.Contains(r.URL.Path, ".html") {
+			r.URL.Path += ".html"
+		}
+
 		ctx := chi.RouteContext(r.Context())
 		pathPrefix := strings.TrimSuffix(ctx.RoutePattern(), "/*")
 		fs := http.StripPrefix(pathPrefix, http.FileServer(root))
