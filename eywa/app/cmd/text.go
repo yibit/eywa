@@ -44,7 +44,7 @@ func executeText(ctx *cli.Context) error {
 		}
 		log.Infof("%s", strings.ReplaceAll(data, ctx.Args().Get(1), ctx.Args().Get(2)))
 	case "pinyin":
-		log.Infof("%s\nINFO %s: %s", text.Pinyin(data), log.Default().GetPrefix(), data)
+		log.Infof("%s\nINFO %s: %s\nINFO %s: %s", text.Pinyin(data), log.Default().GetPrefix(), text.ToPinyin(data), log.Default().GetPrefix(), data)
 	case "s2t":
 		log.Infof("%s", text.S2T(data))
 	default:

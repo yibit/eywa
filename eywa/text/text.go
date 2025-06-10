@@ -24,6 +24,11 @@ func Pinyin(str string) string {
 	return dict.Sentence(str).Unicode()
 }
 
+func ToPinyin(str string) string {
+	dict := pinyin.NewDict()
+	return dict.Convert(str, "").None()
+}
+
 func S2T(str string) string {
 	s2t, err := opencc.New("s2t")
 	if err != nil {
