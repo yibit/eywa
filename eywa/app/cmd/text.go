@@ -17,7 +17,8 @@ var Text = &cli.Command{
 	Description: "Start to convert text",
 	Action:      executeText,
 	Flags: []cli.Flag{
-		utils.StringFlag("type", "t", "title", "`type` of action (upper|lower|title|sub|pinyin|s2t)"),
+		utils.StringFlag("type", "t", "title", "`type` of action (upper|lower|title|sub|pinyin|s2t|t2s)"),
+		utils.StringFlag("file", "f", "", "`path` to file"),
 	},
 }
 
@@ -25,7 +26,7 @@ func executeText(ctx *cli.Context) error {
 	logger.Init(ctx)
 	log.Debugf("type: %s", ctx.String("type"))
 
-	if ctx.NArg() < 1 {
+	if ctx.NArg() < 1 && ctx.String("file") == "" {
 		log.Errorf("ctx.NArg() is less than 1(%d)", ctx.NArg())
 		return nil
 	}
@@ -44,9 +45,20 @@ func executeText(ctx *cli.Context) error {
 		}
 		log.Infof("%s", strings.ReplaceAll(data, ctx.Args().Get(1), ctx.Args().Get(2)))
 	case "pinyin":
-		log.Infof("%s\nINFO %s: %s\nINFO %s: %s", text.Pinyin(data), log.Default().GetPrefix(), text.ToPinyin(data), log.Default().GetPrefix(), data)
+		simple, traditional := text.T2S(data), text.S2T(data)
+		log.Infof("%s\nINFO %s: %s\nINFO %s: %s\nINFO %s: %s", text.Pinyin(data), log.Default().GetPrefix(), text.ToPinyin(data), log.Default().GetPrefix(), simple, log.Default().GetPrefix(), traditional)
 	case "s2t":
-		log.Infof("%s", text.S2T(data))
+		if ctx.String("file") == "" {
+			log.Infof("%s", text.S2T(data))
+		} else {
+			log.Infof("%s", text.S2TFile(ctx.String("file")))
+		}
+	case "t2s":
+		if ctx.String("file") == "" {
+			log.Infof("%s", text.T2S(data))
+		} else {
+			log.Infof("%s", text.T2SFile(ctx.String("file")))
+		}
 	default:
 		log.Infof("%s", text.Title(data))
 	}

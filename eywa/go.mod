@@ -1,15 +1,18 @@
 module eywa
 
-go 1.21
+go 1.23.0
+
+toolchain go1.24.10
 
 require (
+	github.com/6tail/tyme4go v1.3.9
 	github.com/Lofanmi/pinyin-golang v0.0.0-20211114132645-1db892057f20
 	github.com/TylerBrock/colorjson v0.0.0-20200706003622-8a50f05110d2
 	github.com/ajankovic/xdiff v0.0.1
 	github.com/cespare/xxhash/v2 v2.2.0
 	github.com/charmbracelet/log v0.2.2
 	github.com/fatih/color v1.16.0
-	github.com/go-chi/chi/v5 v5.2.1
+	github.com/go-chi/chi/v5 v5.2.5
 	github.com/google/uuid v1.3.0
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/miekg/dns v1.1.57
@@ -19,7 +22,7 @@ require (
 	github.com/speps/go-hashids/v2 v2.0.1
 	github.com/urfave/cli/v2 v2.6.0
 	github.com/yudai/gojsondiff v1.0.0
-	golang.org/x/text v0.21.0
+	golang.org/x/text v0.23.0
 	gopkg.in/yaml.v3 v3.0.1
 )
 
@@ -51,8 +54,8 @@ require (
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
 	golang.org/x/mod v0.17.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/sync v0.10.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/sync v0.12.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/tools v0.21.1-0.20240508182429-e35e4ccd0d2d // indirect
 )

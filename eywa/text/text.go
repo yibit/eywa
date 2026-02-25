@@ -1,6 +1,8 @@
 package text
 
 import (
+	"eywa/utils"
+
 	"github.com/Lofanmi/pinyin-golang/pinyin"
 	opencc "github.com/liuzl/gocc"
 	"golang.org/x/text/cases"
@@ -26,7 +28,22 @@ func Pinyin(str string) string {
 
 func ToPinyin(str string) string {
 	dict := pinyin.NewDict()
-	return dict.Convert(str, "").None()
+	return dict.Sentence(str).None()
+}
+
+func ConvertPinyin(str string) string {
+	dict := pinyin.NewDict()
+	return dict.Convert(str, " ").None()
+}
+
+func T2SFile(path string) string {
+	data := utils.ReadAll(path)
+	return T2S(data)
+}
+
+func S2TFile(path string) string {
+	data := utils.ReadAll(path)
+	return S2T(data)
 }
 
 func S2T(str string) string {
@@ -35,6 +52,19 @@ func S2T(str string) string {
 		return err.Error()
 	}
 	out, err := s2t.Convert(str)
+	if err != nil {
+		return err.Error()
+	}
+
+	return out
+}
+
+func T2S(str string) string {
+	t2s, err := opencc.New("t2s")
+	if err != nil {
+		return err.Error()
+	}
+	out, err := t2s.Convert(str)
 	if err != nil {
 		return err.Error()
 	}

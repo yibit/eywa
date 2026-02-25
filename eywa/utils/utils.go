@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
+	"io"
 	"os"
 	"path/filepath"
 	"strings"
@@ -58,6 +59,17 @@ func Write(path, text string) error {
 	f.WriteString(text)
 
 	return nil
+}
+
+func ReadAll(path string) string {
+	if f, err := os.Open(path); err == nil {
+		data, err := io.ReadAll(f)
+		if err == nil {
+			return string(data)
+		}
+	}
+
+	return ""
 }
 
 func IsIPv6Addr(ip string) bool {
